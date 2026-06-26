@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "student.h"
 #include "statistics.h"
 
