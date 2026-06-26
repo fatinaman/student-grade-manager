@@ -7,7 +7,7 @@ void addStudent(Student *students, int *count){
     float marks;
     printf("Enter student's name: ");
     fgets(name, sizeof(name), stdin); //This also takes in the \n character at the and of the string which will cause problems later on
-    name[strcspn(name,"\n")] = '\0'
+    name[strcspn(name,"\n")] = '\0';
     printf("\nEnter student's marks: ");
     scanf("%f", &marks);
     Student tempStudent;
