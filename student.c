@@ -21,31 +21,33 @@ void addStudent(Student *students, int *count){
 } // taking a pointer to the count variable because we need to update it
 
 void displayStudents(Student students[], int count){
-    if (count ==0) {
-        printf("No students to print !");
-    }else{
+    if (count == 0) {
+        printf("No students to print !\n");
+    } else {
         printf("------------------------------------------\n");
-        printf("ID   Name                            Marks\n");
+        // Using explicit spacing that perfectly mirrors the loop below
+        printf("%-5s  %-20s  %-s\n", "ID", "Name", "Marks");
         printf("------------------------------------------\n");
         for (int i = 0; i < count; i++){
             Student tempStudent = students[i];
+            // Matches the header alignment exactly
             printf("%-5d  %-20s  %.2f\n", tempStudent.id, tempStudent.name, tempStudent.marks);
-    }
+        }
+        printf("------------------------------------------\n");
     }
 }
 
 void searchStudent(Student students[], int count, int id){
-    // implement a function to search student based on id
-    // given that id = count + 1 at the time of inserting
     for(int i = 0; i < count; i++){
-        if (i+1 == id){
+        if (students[i].id == id){ // Using the actual ID property is safer than i+1
             printf("------------------------------------------\n");
-            printf("ID   Name                            Marks\n");
+            printf("%-5s  %-20s  %-s\n", "ID", "Name", "Marks");
             printf("------------------------------------------\n");
             Student tempStudent = students[i];
-            printf("%d  %s  %f\n", tempStudent.id, tempStudent.name, tempStudent.marks);
+            printf("%-5d  %-20s  %.2f\n", tempStudent.id, tempStudent.name, tempStudent.marks);
+            printf("------------------------------------------\n");
             return;
         }
     }
-    printf("No student with that id");
+    printf("No student with that id\n");
 }
